@@ -1,0 +1,33 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{item.topic}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+   
+<ion-content padding>
+	<ion-card>
+	<h4>Topic</h4>
+	   <p>
+		   {{item.topic}}  
+	    </p>
+	  <ion-card-content>
+	    <ion-card-title>
+	    <h5>Instructions</h5>
+	      <p>
+	      {{item.instructions}}
+	      </p>
+	      </ion-card-title>
+	    <p item-left>
+	    Status: 
+	      {{item.status}}
+	    </p>
+	    <p item-right>
+		   $ : {{item.total}}
+	    </p>
+    </ion-card-content>
+</ion-card>
+</ion-content>

@@ -12,13 +12,10 @@
   <ion-list>
 	  <ion-item *ngFor="let item of items" item-left>
 		  <h2>Topic:  {{item.topic}}</h2>
-      <p>
-      {{item.datasked}}
-      </p>
+     
 		  <p item-right>
-			  	 {{item.status}}
-		  
-          $ {{item.total}}
+			  	      
+      <button ion-button secondary (click)="viewItem(item)">View</button>
       </p>
 	  </ion-item>
   </ion-list>

@@ -5,6 +5,7 @@ import { AlertController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 import {Http, Headers} from '@angular/http';
+import { OrderdetailsPage } from '../orderdetails/orderdetails';
 
 @Component({
   selector: 'page-page1',
@@ -57,6 +58,12 @@ export class Page1 {
       }); 
             
    });
+  }
+  viewItem(item)
+  {
+    this.navCtrl.push(OrderdetailsPage,{
+      item:item
+    })
   }
 }
  
