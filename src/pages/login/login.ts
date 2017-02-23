@@ -29,14 +29,19 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  
     
   }
   ngOnInit()
   {
     this.data={};
-    this.data.number="";
+    this.data.username="";
     this.data.password="";
+    let loader = this.loading.create({
+      content: "Please wait...",
+      duration: 100
+   });
+   loader.present();
   }
 
   login(){
@@ -46,12 +51,12 @@ export class LoginPage {
    });
    loader.present();
    var headers = new Headers();
-   var number=this.data.number;
+   var username=this.data.username;
    var password=this.data.password;
-   let data ={number: this.data.number, password: this.data.password, url: this.data.url};
+   let data ={username: this.data.username, password: this.data.password, url: this.data.url};
 
-  let link="https://dotheessay.com/bet/public/api/login";
-  /*let link=this.settingService.baseUrl+"/login";*/
+  /*let link="https://dotheessay.com/bet/public/api/login";*/
+    let link=this.settingService.baseUrl+"/login";
   headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       return new Promise(resolve => {

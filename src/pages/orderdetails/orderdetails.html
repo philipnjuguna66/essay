@@ -9,28 +9,25 @@
 
    
 <ion-content padding>
+	
 	<ion-card>
-	<h4>Topic</h4>
-	   <p>
-		   {{item.topic}}  
-	    </p>
-	  <ion-card-content>
-	    <ion-card-title>
-	    <h5>Instructions</h5>
-	      <p>
-	      {{item.instructions}}
-	      </p>
-	      </ion-card-title>
-	    <p item-left>
-	    Status: 
-	      {{item.status}}
-	    </p>
-	    <p item-right>
-		   $ : {{item.total}}
-	    </p>
-    </ion-card-content>
+  <ion-card-content>
+    <ion-card-title>
+      {{item.topic}}
+      </ion-card-title>
+      <h2>Instructions</h2>
+    <p>
+      {{item.instructions}}
+    </p>
+    <h2 item-left>Status:  {{item.status}}</h2> 
+    <h2 item-right>$:  {{item.total}} </h2>
+
+  </ion-card-content>
 </ion-card>
+ 
 </ion-content>
+
+
 <ion-footer>
   <ion-navbar color="primary">
     <ion-title>{{item.topic}}</ion-title>
