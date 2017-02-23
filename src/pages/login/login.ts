@@ -25,15 +25,18 @@ export class LoginPage {
    fetchdata:any;
    url: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private loading : LoadingController , private alert: AlertController,private settingService: SettingService) {
-  this.data={};
-  this.data.number="";
-  this.data.url=this.settingService.baseUrl;
-  this.data.password="";
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-    console.info(this.data.url);
+    
+  }
+  ngOnInit()
+  {
+    this.data={};
+    this.data.number="";
+    this.data.password="";
   }
 
   login(){
