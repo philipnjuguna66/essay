@@ -5,6 +5,7 @@ import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { Storage} from '@ionic/storage';
 import { Page1 } from '../page1/page1';
 import { SettingService } from '../../app/services/settings.service'; 
 
@@ -23,9 +24,12 @@ import { SettingService } from '../../app/services/settings.service';
 export class LoginPage {
    data:any;
    fetchdata:any;
+   public local: Storage;
+   public newlocal : any;
    url: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private loading : LoadingController , private alert: AlertController,private settingService: SettingService) {
 
+    this.local = new Storage();
   }
 
   ionViewDidLoad() {
@@ -34,6 +38,7 @@ export class LoginPage {
   }
   ngOnInit()
   {
+  
     this.data={};
     this.data.username="";
     this.data.password="";
@@ -51,6 +56,7 @@ export class LoginPage {
    });
    loader.present();
    var headers = new Headers();
+  
    var username=this.data.username;
    var password=this.data.password;
    let data ={username: this.data.username, password: this.data.password, url: this.data.url};
@@ -65,7 +71,9 @@ export class LoginPage {
             .subscribe(data => {
             console.log(data);
             if(data.status=="success"){
-
+              
+              this.local.set('localdata',data.data)
+              this.local.get('localdata').then((data)=>this.newlocal=data);
 				    	let loader = this.loading.create({
 					    	content: data.message,
 					        duration: 100

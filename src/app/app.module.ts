@@ -5,6 +5,11 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { LoginPage } from '../pages/login/login';
 import { OrderdetailsPage } from '../pages/orderdetails/orderdetails';
+import { Storage } from '@ionic/storage';
+
+export function provideStorage() {
+  return new Storage(['sqlite', 'websql', 'indexeddb'], { name: '__mydb' });
+}
 
 @NgModule({
   declarations: [
@@ -13,6 +18,7 @@ import { OrderdetailsPage } from '../pages/orderdetails/orderdetails';
     Page2,
     LoginPage,
     OrderdetailsPage
+    
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,7 +30,8 @@ import { OrderdetailsPage } from '../pages/orderdetails/orderdetails';
     Page2,
     LoginPage,
     OrderdetailsPage
+
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide:ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

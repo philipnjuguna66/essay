@@ -5,6 +5,7 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { LoginPage } from '../pages/login/login';
 import { OrderdetailsPage } from '../pages/orderdetails/orderdetails';
+import { Storage} from '@ionic/storage';
 
 import { SettingService } from './services/settings.service'; 
 
@@ -17,11 +18,17 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = LoginPage;
+  public local: Storage;
+  public newlocal:any;
+  public items:any;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
+    this.local = new Storage();
+    this.items='';
+    this.local.get('localdata').then((data)=>this.newlocal=data);
 
     // used for an example of ngFor and navigation
     this.pages = [

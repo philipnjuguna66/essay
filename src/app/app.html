@@ -1,15 +1,19 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Menu:</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
+    <p menuClose ion-item  *ngIf = "newlocal" >
+     Welcome Back:  {{newlocal.username}}
+       </p>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+       
     </ion-list>
   </ion-content>
 
